@@ -13,3 +13,16 @@ print(series_idade)
 # %%
 
 idade[0]
+
+print(series_idade.iloc[::-5])
+
+# %%
+
+indexes = ["João", "Maria", "José", "Pedro",
+           "Ana", "Carla", "Paulo", "Lucas",
+           "Marta", "Joaquim", "Ricardo", "Mariana",
+              "Lúcia", "Teresa", "Rafael"
+]
+
+series_idade = pd.Series(idade, index=indexes)
+print(series_idade)
