@@ -18,7 +18,7 @@ print(series_idade.iloc[::-5])
 
 # %%
 
-indexes = ["João", "Maria", "José", "Pedro",
+indexes = ["João", "Maria", "Maria", "Pedro",
            "Ana", "Carla", "Paulo", "Lucas",
            "Marta", "Joaquim", "Ricardo", "Mariana",
               "Lúcia", "Teresa", "Rafael"
@@ -26,3 +26,12 @@ indexes = ["João", "Maria", "José", "Pedro",
 
 series_idade = pd.Series(idade, index=indexes)
 print(series_idade)
+ # %%
+
+print(series_idade["Maria"])
+
+# %%
+
+print(series_idade.iloc[1])
+
+print(series_idade.loc["Maria"])
