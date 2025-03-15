@@ -12,3 +12,6 @@ type(dfs)
 
 df_uf = dfs[1]
 df_uf.to_csv("ufs.csv", index=False)
+
+df_ufs = pd.read_csv("ufs.csv")
+df_ufs
