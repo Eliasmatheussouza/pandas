@@ -21,3 +21,6 @@ df["dtCriacao"] = pd.to_datetime(df["dtCriacao"].replace(replace))
 # %%
 
 df["dtCriacao"].dt.month
+
+# %%
+
