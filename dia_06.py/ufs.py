@@ -32,3 +32,18 @@ ufs["PIB (2015)"] = ufs["PIB (2015)"].apply(str_to_float)
 # %%
 
 ufs.dtypes
+
+# %%
+
+linha = ufs.iloc[4]
+
+# %%
+
+def classifica_bom(linha):
+    (linha["Área (km²)"] > 100000 and
+    linha["PIB per capita (R$) (2015)"] > 15000 and
+    linha["IDH (2010)"] > 0.7)
+
+# %%
+
+ufs.apply(classifica_bom, axis=1)
