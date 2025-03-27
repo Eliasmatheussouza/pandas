@@ -25,4 +25,16 @@ cliente_transacao_produto = transacoes.merge(transacao_produto,
 
 cliente_transacao_produto[["idTransacao", "idCliente", "idProduto"]]
 
-cliente_transacao_produto.merge(produtos, on=["idProduto"])
+df_full = cliente_transacao_produto.merge(
+                                          produtos,
+                                          on=["idProduto"],
+                                          how="left")
+
+df_full = df_full[df_full["descProduto"]=="Presença Streak"]
+df_full
+
+(df_full.groupby(by=["idCliente"])["idTransacao"]
+        .count()
+        .sort_values(ascending=False)
+        .head(1)
+        )
