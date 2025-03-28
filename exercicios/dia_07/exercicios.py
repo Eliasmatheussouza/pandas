@@ -38,3 +38,16 @@ df_full
         .sort_values(ascending=False)
         .head(1)
         )
+
+# %%
+
+produtos = produtos[produtos["descProduto"]=="Presença Streak"]
+
+(transacoes.merge(transacao_produto, on="idTransacao", how="left")
+           .merge(produtos, on=["idProduto"], how="left")
+           .merge(produtos, on=["idProduto"], how="right")
+           .groupby(by="idCliente")["idTransacao"]
+           .count()
+           .sort_values(ascending=False)
+           .head(1)
+)
