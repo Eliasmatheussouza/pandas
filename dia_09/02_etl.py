@@ -2,7 +2,6 @@
 
 import pandas as pd
 import sqlalchemy
-
 from sklearn import cluster
 
 with open("etl.sql") as open_file:
@@ -18,3 +17,16 @@ print(df)
 
 # %%
 
+kmean = cluster.KMeans(n_clusters=4)
+kmean.fit(df[["TotalRevenue", "qtdSales"]])
+
+df["cluster"] = kmean.labels_
+df
+
+# %%
+
+df.to_sql("sellers_cluster",
+          con=engine,
+          index=False,
+          if_exists="replace"
+          )
